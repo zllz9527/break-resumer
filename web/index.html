@@ -62,7 +62,7 @@
 
       const listItem = document.createElement('li');
 
-      listItem.innerHTML = `<span class="pross"></span><span>${file.name}</span><span>${(file.size / 1024).toFixed(2)}KB</span>`;
+      listItem.innerHTML = `<span class="pross"></span><span class="status"></span><span class="filename">${file.name}</span><span class="filesize">${(file.size / 1024).toFixed(2)}KB</span>`;
 
       fileList.appendChild(listItem);
 
@@ -209,6 +209,14 @@
 
     const prossList = document.querySelectorAll('#file_list li .pross');
     prossList[fileIndex].style.width = `${100}%`;
+    
+    // 添加成功状态
+    const fileItems = document.querySelectorAll('#file_list li');
+    const currentItem = fileItems[fileIndex];
+    currentItem.classList.add('upload-success');
+    const statusSpan = currentItem.querySelector('.status');
+    statusSpan.textContent = '✓';
+    statusSpan.classList.add('success-icon');
   }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
