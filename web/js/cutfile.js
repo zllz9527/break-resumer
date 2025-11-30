@@ -20,7 +20,7 @@ export function cutFile(file, uploadedChunks, callback) {
 
       if (start >= end) continue;
       
-      const worker = new Worker('./../../web/js/worker.js');
+      const worker = new Worker('./js/worker.js');
       
       worker.onerror = (err) => console.log('worker error:::', index, err);
 
